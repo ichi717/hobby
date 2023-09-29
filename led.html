@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>LED</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <p><input type="checkbox" id="led" value="1" onclick="set_led()" />LED点灯</p>
+  <script type="text/javascript">
+    function set_led() {
+      led = document.getElementById("led");
+      $.get("/wsgi/led.py?v=" + (led.checked ? "1":"0"));
+    }
+    window.onload = set_led;
+  </script>
+</body>
+</html>
